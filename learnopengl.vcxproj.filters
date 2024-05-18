@@ -13,10 +13,50 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\GettingStarted">
+      <UniqueIdentifier>{19894860-3a51-4cfe-bb68-17e07cbab793}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GettingStarted">
+      <UniqueIdentifier>{b58ac31f-e782-435f-9ac6-1ba1b67ad7c0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="_main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="01_gettingstarted\getting_started.cpp">
+      <Filter>Source Files\GettingStarted</Filter>
+    </ClCompile>
+    <ClCompile Include="glad33.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="glad43.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="shaders.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="01_gettingstarted\vs_triangle.glsl">
+      <Filter>Source Files\GettingStarted</Filter>
+    </None>
+    <None Include="01_gettingstarted\fs_triangle.glsl">
+      <Filter>Source Files\GettingStarted</Filter>
+    </None>
+    <None Include="01_gettingstarted\fs_triangle_color2.glsl">
+      <Filter>Source Files\GettingStarted</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="shaders.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="helpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
