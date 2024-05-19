@@ -27,9 +27,6 @@
     <ClCompile Include="tests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="01_gettingstarted\getting_started.cpp">
-      <Filter>Source Files\GettingStarted</Filter>
-    </ClCompile>
     <ClCompile Include="glad33.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -39,17 +36,12 @@
     <ClCompile Include="shaders.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="01_gettingstarted\vs_triangle.glsl">
+    <ClCompile Include="01_gettingstarted\_getting_started.cpp">
       <Filter>Source Files\GettingStarted</Filter>
-    </None>
-    <None Include="01_gettingstarted\fs_triangle.glsl">
+    </ClCompile>
+    <ClCompile Include="01_gettingstarted\triangle.cpp">
       <Filter>Source Files\GettingStarted</Filter>
-    </None>
-    <None Include="01_gettingstarted\fs_triangle_color2.glsl">
-      <Filter>Source Files\GettingStarted</Filter>
-    </None>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shaders.h">
@@ -58,5 +50,19 @@
     <ClInclude Include="helpers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="01_gettingstarted\getting_started.h">
+      <Filter>Header Files\GettingStarted</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="01_gettingstarted\triangle_color2_fs.glsl">
+      <Filter>Source Files\GettingStarted</Filter>
+    </None>
+    <None Include="01_gettingstarted\triangle_fs.glsl">
+      <Filter>Source Files\GettingStarted</Filter>
+    </None>
+    <None Include="01_gettingstarted\triangle_vs.glsl">
+      <Filter>Source Files\GettingStarted</Filter>
+    </None>
   </ItemGroup>
 </Project>

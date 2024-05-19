@@ -1,58 +1,12 @@
 
-#include <glad33/glad.h>
-#include <GLFW/glfw3.h>
-
-#include "helpers.h"
-#include "shaders.h"
-#include <iostream>
-#include <stdint.h>
-
-#define RSRCDIR ".\\01_gettingstarted\\"
-#define RSRC(A) RSRCDIR##A
-
-static int basic();
-static int triangle();
-static int rectangle();
-static int multitris();
-
-int call_loop_unit1(int& selection)
-{
-	int retcode = 0;
-
-	void* ptrs[] =
-	{
-		basic,
-		triangle,
-		rectangle,
-		multitris,
-		0
-	};
-
-	void* fcn = 0;
-	for (int i = 0; ptrs[i] && i <= selection; i++)
-	{
-		fcn = ptrs[i];
-	}
-
-	retcode = ((int(*)())fcn)();
-
-	return retcode;
-}
-
-static int basic()
-{
-	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
-
-	return 0;
-}
+#include "getting_started.h"
 
 static int tri_init_done = 0;
 static unsigned int triangle_program = UINT_MAX;
 static unsigned int triangle_VAO = UINT_MAX;
 static int triangle_do_init();
 
-static int triangle()
+int triangle()
 {
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -88,7 +42,7 @@ static int triangle_do_init()
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 
-	programCompilation(RSRC("vs_triangle.glsl"), RSRC("fs_triangle.glsl"), triangle_program);
+	programCompilation(RSRC("triangle_vs.glsl"), RSRC("triangle_fs.glsl"), triangle_program);
 
 	triangle_VAO = VAO;
 	tri_init_done = 1;
@@ -101,7 +55,7 @@ static unsigned int rectangle_program = UINT_MAX;
 static unsigned int rectangle_VAO = UINT_MAX;
 static int rectangle_do_init();
 
-static int rectangle()
+int rectangle()
 {
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -149,7 +103,7 @@ static int rectangle_do_init()
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 
-	programCompilation(RSRC("vs_triangle.glsl"), RSRC("fs_triangle.glsl"), rectangle_program);
+	programCompilation(RSRC("triangle_vs.glsl"), RSRC("triangle_fs.glsl"), rectangle_program);
 
 	rectangle_VAO = VAO;
 	rect_init_done = 1;
@@ -166,7 +120,7 @@ GLuint multitris_EBO2;
 int multitris_init_done = 0;
 static int multitris_do_init();
 
-static int multitris()
+int multitris()
 {
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -254,8 +208,8 @@ static int multitris_do_init()
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 
-	programCompilation(RSRC("vs_triangle.glsl"), RSRC("fs_triangle.glsl"), multitris_program1);
-	programCompilation(RSRC("vs_triangle.glsl"), RSRC("fs_triangle_color2.glsl"), multitris_program2);
+	programCompilation(RSRC("triangle_vs.glsl"), RSRC("triangle_fs.glsl"), multitris_program1);
+	programCompilation(RSRC("triangle_vs.glsl"), RSRC("triangle_color2_fs.glsl"), multitris_program2);
 
 	glBindVertexArray(0);
 

@@ -153,7 +153,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="01_gettingstarted\getting_started.cpp" />
+    <ClCompile Include="01_gettingstarted\triangle.cpp" />
+    <ClCompile Include="01_gettingstarted\_getting_started.cpp" />
     <ClCompile Include="glad33.c" />
     <ClCompile Include="glad43.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
@@ -166,13 +167,14 @@
     <ClCompile Include="_main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="01_gettingstarted\fs_triangle.glsl" />
-    <None Include="01_gettingstarted\fs_triangle_color2.glsl" />
-    <None Include="01_gettingstarted\vs_triangle.glsl" />
-  </ItemGroup>
-  <ItemGroup>
+    <ClInclude Include="01_gettingstarted\getting_started.h" />
     <ClInclude Include="helpers.h" />
     <ClInclude Include="shaders.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="01_gettingstarted\triangle_color2_fs.glsl" />
+    <None Include="01_gettingstarted\triangle_fs.glsl" />
+    <None Include="01_gettingstarted\triangle_vs.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

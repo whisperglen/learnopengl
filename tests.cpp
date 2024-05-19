@@ -50,10 +50,40 @@ static void xassert_int(int success, int printval, const char* function, unsigne
             (xassert_int((!!(expression)), (iter), (__func__), (unsigned)(__LINE__), (__FILE__)), 0) \
         )
 
+static int do_selection(int selection)
+{
+	int ptrs[] =
+	{
+		1,
+		2,
+		3,
+		0
+	};
 
+	int fcn = 1;
+	for (int i = 0; ptrs[i] && i <= selection; i++)
+	{
+		fcn = ptrs[i];
+	}
+
+	return fcn;
+}
+
+static int test_selection()
+{
+	assertx(do_selection(-1) == 1);
+	assertx(do_selection(0) == 1);
+	assertx(do_selection(1) == 2);
+	assertx(do_selection(2) == 3);
+	assertx(do_selection(3) == 3);
+	assertx(do_selection(100) == 3);
+
+	return 0;
+}
 
 int run_tests()
 {
+	test_selection();
 
 	cout << "Tests result: " << tests_ok << "/" << tests_total << endl;
 	return 0;
