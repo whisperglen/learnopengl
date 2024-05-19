@@ -20,6 +20,7 @@ int multitris();
 int color();
 int uniform();
 int attributes();
+int texture();
 
 #ifdef GETTING_STARTED_DATA
 
@@ -32,6 +33,7 @@ static void* getting_started_ptrs[] =
 	color,
 	uniform,
 	attributes,
+	texture,
 	0
 };
 

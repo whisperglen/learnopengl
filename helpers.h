@@ -18,3 +18,6 @@ inline int max(int a, int b)
 }
 
 #define RET_ON_FAIL(X) do { int res = (X); if(0 != res) { return res; } } while(0)
+
+GLenum glCheckError_(const char* file, int line);
+#define glCheckError() glCheckError_(__FILE__, __LINE__) 

@@ -16,10 +16,20 @@ struct sample_data
 	int num_ebo;
 	GLuint* programs;
 	int num_progs;
+	GLuint* textures;
+	int num_tex;
 
 	sample_data(int num_vao, int num_vbo, int num_ebo, int num_progs) :
 		initialised(0), VAOs(0), num_vao(num_vao), VBOs(0), num_vbo(num_vbo),
-		EBOs(0), num_ebo(num_ebo), programs(0), num_progs(num_progs)
+		EBOs(0), num_ebo(num_ebo), programs(0), num_progs(num_progs),
+		textures(0), num_tex(0)
+	{
+	}
+
+	sample_data(int num_vao, int num_vbo, int num_ebo, int num_progs, int num_tex) :
+		initialised(0), VAOs(0), num_vao(num_vao), VBOs(0), num_vbo(num_vbo),
+		EBOs(0), num_ebo(num_ebo), programs(0), num_progs(num_progs),
+		textures(0), num_tex(num_tex)
 	{
 	}
 
@@ -51,6 +61,12 @@ struct sample_data
 				programs = (GLuint*)malloc(num_progs * sizeof(GLuint));
 				if (!programs) break;
 				memset(programs, 0, num_progs * sizeof(GLuint));
+			}
+			if (num_tex)
+			{
+				textures = (GLuint*)malloc(num_tex * sizeof(GLuint));
+				if (!textures) break;
+				glGenTextures(num_tex, textures);
 			}
 
 			rtn = 0;

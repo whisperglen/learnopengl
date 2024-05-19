@@ -19,6 +19,9 @@
     <Filter Include="Header Files\GettingStarted">
       <UniqueIdentifier>{b58ac31f-e782-435f-9ac6-1ba1b67ad7c0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\textures">
+      <UniqueIdentifier>{73c29a70-9f39-4849-815d-1a4fa80ea9c6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="_main.cpp">
@@ -47,6 +50,9 @@
     </ClCompile>
     <ClCompile Include="01_gettingstarted\textures.cpp">
       <Filter>Source Files\GettingStarted</Filter>
+    </ClCompile>
+    <ClCompile Include="01_gettingstarted\stb_image.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -85,5 +91,22 @@
     <None Include="01_gettingstarted\shaders_attributes_fs.glsl">
       <Filter>Source Files\GettingStarted</Filter>
     </None>
+    <None Include="README.md">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="01_gettingstarted\textures_vs.glsl">
+      <Filter>Source Files\GettingStarted</Filter>
+    </None>
+    <None Include="01_gettingstarted\textures_fs.glsl">
+      <Filter>Source Files\GettingStarted</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="textures\crate1_diffuse.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="textures\greendragon.jpg">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>
