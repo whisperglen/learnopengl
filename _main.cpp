@@ -107,6 +107,17 @@ static void processInput(GLFWwindow* window)
         selection = 9;
     if (glfwGetKey(window, GLFW_KEY_0) == GLFW_PRESS)
         selection = 0;
+
+    static int tab_pressed = 0;
+    if (glfwGetKey(window, GLFW_KEY_TAB) == GLFW_PRESS && !tab_pressed)
+    {
+        tab_pressed++;
+        selection++;
+    }
+    if (glfwGetKey(window, GLFW_KEY_TAB) == GLFW_RELEASE)
+    {
+        tab_pressed = 0;
+    }
 }
 
 static void framebuffer_size_callback(GLFWwindow* window, int width, int height)

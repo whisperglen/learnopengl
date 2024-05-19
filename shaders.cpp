@@ -4,9 +4,6 @@
 #include <fstream>
 #include "helpers.h"
 
-#include <glad33/glad.h>
-#include <GLFW/glfw3.h>
-
 static int checkShaderCompile(unsigned int shader);
 static int checkProgramCompile(unsigned int program);
 

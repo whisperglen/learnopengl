@@ -153,6 +153,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="01_gettingstarted\shaders_practice.cpp" />
+    <ClCompile Include="01_gettingstarted\textures.cpp" />
     <ClCompile Include="01_gettingstarted\triangle.cpp" />
     <ClCompile Include="01_gettingstarted\_getting_started.cpp" />
     <ClCompile Include="glad33.c" />
@@ -172,6 +174,11 @@
     <ClInclude Include="shaders.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="01_gettingstarted\shaders_attributes_fs.glsl" />
+    <None Include="01_gettingstarted\shaders_attributes_vs.glsl" />
+    <None Include="01_gettingstarted\shaders_fs.glsl" />
+    <None Include="01_gettingstarted\shaders_uniform_fs.glsl" />
+    <None Include="01_gettingstarted\shaders_vs.glsl" />
     <None Include="01_gettingstarted\triangle_color2_fs.glsl" />
     <None Include="01_gettingstarted\triangle_fs.glsl" />
     <None Include="01_gettingstarted\triangle_vs.glsl" />
