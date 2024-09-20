@@ -4,6 +4,7 @@
 #include <glad33/glad.h>
 #include <GLFW/glfw3.h>
 
+#include <string>
 #include <iostream>
 
 #include "helpers.h"
@@ -15,6 +16,11 @@ static void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 static void processInput(GLFWwindow* window);
 void APIENTRY glDebugOutput(GLenum source, GLenum type, unsigned int id, GLenum severity, GLsizei length, const char* message, const void* userParam);
 
+//if the assert fails the type of optimus enable variable may need to be changed; originally it was DWORD
+static char assert_size_of_long_type[sizeof(unsigned long) == 4];
+static char assert_size_of_int_type[sizeof(int) == 4];
+extern "C" _declspec(dllexport) unsigned long NvOptimusEnablement = 0x00000001;
+extern "C" _declspec(dllexport) int AmdPowerXpressRequestHighPerformance = 1;
 static int selection = INT_MAX;
 
 int main()
