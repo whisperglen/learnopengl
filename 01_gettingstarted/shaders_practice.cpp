@@ -82,8 +82,8 @@ int uniform()
 		RET_ON_FAIL(uniform_do_init());
 	}
 
-	float timeValue = glfwGetTime();
-	float greenValue = (sin(timeValue) / 2.0f) + 0.5f;
+	float timeValue = (float)glfwGetTime();
+	float greenValue = (float)(sin(timeValue) / 2.0f) + 0.5f;
 
 	glUseProgram(uniform_sample.programs[0]);
 	int vertexColorLocation = glGetUniformLocation(uniform_sample.programs[0], "ourColor");
@@ -137,7 +137,7 @@ int attributes()
 		RET_ON_FAIL(attributes_do_init());
 	}
 
-	float timeValue = glfwGetTime();
+	float timeValue = (float)glfwGetTime();
 	float posValue = (sin(timeValue) / 2.0f); //-0.5 .. 0.5
 
 	glUseProgram(attributes_sample.programs[0]);

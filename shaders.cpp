@@ -17,7 +17,7 @@ int programCompilation(const char* vertex, const char* fragment, unsigned int& p
 	glShaderSource(vertexShader, 1, &shaderSource, NULL);
 	glCompileShader(vertexShader);
 
-	RET_ON_FAIL(checkShaderCompile(vertexShader));
+	RET_ON_FAIL_CLEANUP(checkShaderCompile(vertexShader), free(shaderSource));
 
 	loadShader(fragment, &shaderSource);
 
@@ -26,7 +26,7 @@ int programCompilation(const char* vertex, const char* fragment, unsigned int& p
 	glShaderSource(fragmentShader, 1, &shaderSource, NULL);
 	glCompileShader(fragmentShader);
 
-	RET_ON_FAIL(checkShaderCompile(fragmentShader));
+	RET_ON_FAIL_CLEANUP(checkShaderCompile(fragmentShader), free(shaderSource));
 
 	program = glCreateProgram();
 
@@ -34,7 +34,7 @@ int programCompilation(const char* vertex, const char* fragment, unsigned int& p
 	glAttachShader(program, fragmentShader);
 	glLinkProgram(program);
 
-	RET_ON_FAIL(checkProgramCompile(program));
+	RET_ON_FAIL_CLEANUP(checkProgramCompile(program), free(shaderSource));
 
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
