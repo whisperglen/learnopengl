@@ -57,6 +57,12 @@
     <ClCompile Include="helpers.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="01_gettingstarted\transformations.cpp">
+      <Filter>Source Files\GettingStarted</Filter>
+    </ClCompile>
+    <ClCompile Include="optimus.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shaders.h">
@@ -101,6 +107,9 @@
       <Filter>Source Files\GettingStarted</Filter>
     </None>
     <None Include="01_gettingstarted\textures_fs.glsl">
+      <Filter>Source Files\GettingStarted</Filter>
+    </None>
+    <None Include="01_gettingstarted\transformations.glsl">
       <Filter>Source Files\GettingStarted</Filter>
     </None>
   </ItemGroup>

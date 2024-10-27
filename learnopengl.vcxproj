@@ -156,6 +156,7 @@
     <ClCompile Include="01_gettingstarted\shaders_practice.cpp" />
     <ClCompile Include="01_gettingstarted\stb_image.cpp" />
     <ClCompile Include="01_gettingstarted\textures.cpp" />
+    <ClCompile Include="01_gettingstarted\transformations.cpp" />
     <ClCompile Include="01_gettingstarted\triangle.cpp" />
     <ClCompile Include="01_gettingstarted\_getting_started.cpp" />
     <ClCompile Include="glad33.c">
@@ -171,6 +172,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="helpers.cpp" />
+    <ClCompile Include="optimus.c" />
     <ClCompile Include="shaders.cpp" />
     <ClCompile Include="tests.cpp" />
     <ClCompile Include="_main.cpp" />
@@ -188,6 +190,7 @@
     <None Include="01_gettingstarted\shaders_vs.glsl" />
     <None Include="01_gettingstarted\textures_fs.glsl" />
     <None Include="01_gettingstarted\textures_vs.glsl" />
+    <None Include="01_gettingstarted\transformations.glsl" />
     <None Include="01_gettingstarted\triangle_color2_fs.glsl" />
     <None Include="01_gettingstarted\triangle_fs.glsl" />
     <None Include="01_gettingstarted\triangle_vs.glsl" />

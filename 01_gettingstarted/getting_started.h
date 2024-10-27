@@ -21,6 +21,7 @@ int color();
 int uniform();
 int attributes();
 int texture();
+int transformations();
 
 #ifdef GETTING_STARTED_DATA
 
@@ -34,6 +35,7 @@ static void* getting_started_ptrs[] =
 	uniform,
 	attributes,
 	texture,
+	transformations,
 	0
 };
 
