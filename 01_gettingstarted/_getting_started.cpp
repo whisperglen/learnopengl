@@ -7,12 +7,13 @@ int call_loop_unit1(int& selection)
 {
 	int retcode = 0;
 
+	int i;
 	void* fcn = basic;
-	for (int i = 0; getting_started_ptrs[i] && i <= selection; i++)
+	for (i = 0; getting_started_ptrs[i] && (i <= selection || selection < 0); i++)
 	{
 		fcn = getting_started_ptrs[i];
 	}
-
+	selection = i > 0 ? i - 1 : 0;
 	retcode = ((int(*)())fcn)();
 
 	return retcode;

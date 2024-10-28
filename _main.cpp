@@ -17,6 +17,7 @@ static void processInput(GLFWwindow* window);
 void APIENTRY glDebugOutput(GLenum source, GLenum type, unsigned int id, GLenum severity, GLsizei length, const char* message, const void* userParam);
 
 static int selection = INT_MAX;
+static int unit = INT_MAX;
 
 int main()
 {
@@ -78,8 +79,13 @@ int main()
 
         // rendering commands here
 
-
-        retcode = call_loop_unit1(selection);
+        switch (unit)
+        {
+        default:
+        case 1:
+            retcode = call_loop_unit1(selection);
+            break;
+        }
         glCheckError();
 
         if (retcode != 0)
@@ -109,31 +115,31 @@ static void processInput(GLFWwindow* window)
         glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
     if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS)
-        selection = 1;
+        unit = 1;
     if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS)
-        selection = 2;
+        unit = 2;
     if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS)
-        selection = 3;
+        unit = 3;
     if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS)
-        selection = 4;
+        unit = 4;
     if (glfwGetKey(window, GLFW_KEY_5) == GLFW_PRESS)
-        selection = 5;
+        unit = 5;
     if (glfwGetKey(window, GLFW_KEY_6) == GLFW_PRESS)
-        selection = 6;
+        unit = 6;
     if (glfwGetKey(window, GLFW_KEY_7) == GLFW_PRESS)
-        selection = 7;
+        unit = 7;
     if (glfwGetKey(window, GLFW_KEY_8) == GLFW_PRESS)
-        selection = 8;
+        unit = 8;
     if (glfwGetKey(window, GLFW_KEY_9) == GLFW_PRESS)
-        selection = 9;
+        unit = 9;
     if (glfwGetKey(window, GLFW_KEY_0) == GLFW_PRESS)
-        selection = 0;
+        unit = 0;
 
     static int tab_pressed = 0;
     if (glfwGetKey(window, GLFW_KEY_TAB) == GLFW_PRESS && !tab_pressed)
     {
         tab_pressed++;
-        selection++;
+        selection--;
     }
     if (glfwGetKey(window, GLFW_KEY_TAB) == GLFW_RELEASE)
     {
