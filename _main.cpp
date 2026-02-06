@@ -12,12 +12,22 @@
 extern int run_tests();
 extern int call_loop_unit1(int &selection);
 
+extern int call_loop_unit100(int& selection);
+
 static void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 static void processInput(GLFWwindow* window);
+static void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void APIENTRY glDebugOutput(GLenum source, GLenum type, unsigned int id, GLenum severity, GLsizei length, const char* message, const void* userParam);
 
 static int selection = INT_MAX;
 static int unit = INT_MAX;
+
+static bool firstMouse = true;
+static float deltaTime = 0.0f;	// Time between current frame and last frame
+static float lastFrame = 0.0f;
+
+#define SCR_WIDTH 800
+#define SCR_HEIGHT 600
 
 int main()
 {
@@ -33,7 +43,7 @@ int main()
     //glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); //used for apple
     //glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, true); //requests debug context
 
-    GLFWwindow* window = glfwCreateWindow(800, 600, "LearnOpenGL", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
     if (window == NULL)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
@@ -74,6 +84,10 @@ int main()
     // render loop
     while (!glfwWindowShouldClose(window))
     {
+        float currentFrame = (float)glfwGetTime();
+        deltaTime = currentFrame - lastFrame;
+        lastFrame = currentFrame;
+
         // input
         processInput(window);
 
@@ -84,6 +98,9 @@ int main()
         default:
         case 1:
             retcode = call_loop_unit1(selection);
+            break;
+        case 100:
+            retcode = call_loop_unit100(selection);
             break;
         }
         glCheckError();
@@ -145,11 +162,70 @@ static void processInput(GLFWwindow* window)
     {
         tab_pressed = 0;
     }
+    if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
+    {
+        unit--;
+        if (unit < 0) unit = INT_MAX;
+    }
+    if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
+    {
+        unit++;
+        if (unit < 0) unit = 0;
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+        processKeyboard(0, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+        processKeyboard(1, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+        processKeyboard(2, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+        processKeyboard(3, deltaTime);
+
+    if (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS)
+    {
+        firstMouse = true;
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+        glfwSetCursorPosCallback(window, mouse_callback);
+    }
+    if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS)
+    {
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+        glfwSetCursorPosCallback(window, 0);
+    }
 }
+
+static void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
+    static double lastX, lastY;
+
+    if (firstMouse) {
+        lastX = xpos;
+        lastY = ypos;
+        firstMouse = false;
+    }
+
+    float xoffset = float(xpos - lastX);
+    float yoffset = float(lastY - ypos); // Reversed since y-coordinates go from bottom to top
+
+    lastX = xpos;
+    lastY = ypos;
+
+    processMouseMovement(xoffset, yoffset);
+}
+
+static int g_width = SCR_WIDTH;
+static int g_height = SCR_HEIGHT;
 
 static void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
+    g_width = width;
+    g_height = height;
     glViewport(0, 0, width, height);
+}
+
+const glm::mat4 getProjMatrix()
+{
+    return glm::perspective(glm::radians(45.0f), (float)g_width / (float)g_height, 0.1f, 100.0f);
 }
 
 GLenum glCheckError_(const char* file, int line)

@@ -29,26 +29,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -159,6 +159,8 @@
     <ClCompile Include="01_gettingstarted\transformations.cpp" />
     <ClCompile Include="01_gettingstarted\triangle.cpp" />
     <ClCompile Include="01_gettingstarted\_getting_started.cpp" />
+    <ClCompile Include="100_normalsvis\dense_mesh.cpp" />
+    <ClCompile Include="100_normalsvis\_normals_vis.cpp" />
     <ClCompile Include="glad33.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
@@ -179,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="01_gettingstarted\getting_started.h" />
+    <ClInclude Include="100_normalsvis\normals_vis.h" />
     <ClInclude Include="helpers.h" />
     <ClInclude Include="shaders.h" />
   </ItemGroup>
@@ -194,6 +197,9 @@
     <None Include="01_gettingstarted\triangle_color2_fs.glsl" />
     <None Include="01_gettingstarted\triangle_fs.glsl" />
     <None Include="01_gettingstarted\triangle_vs.glsl" />
+    <None Include="100_normalsvis\dense_mesh_fragment.glsl" />
+    <None Include="100_normalsvis\dense_mesh_fragment_alt.glsl" />
+    <None Include="100_normalsvis\dense_mesh_vertex.glsl" />
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>

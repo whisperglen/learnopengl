@@ -4,6 +4,9 @@
 #include <string.h>
 #include <glad33/glad.h>
 #include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 inline int pos(int a)
 {
@@ -42,17 +45,19 @@ struct sample_data
 	GLuint* textures;
 	int num_tex;
 
+	int index_count;
+
 	sample_data(int num_vao, int num_vbo, int num_ebo, int num_progs) :
 		initialised(0), VAOs(0), num_vao(num_vao), VBOs(0), num_vbo(num_vbo),
 		EBOs(0), num_ebo(num_ebo), programs(0), num_progs(num_progs),
-		textures(0), num_tex(0)
+		textures(0), num_tex(0), index_count(0)
 	{
 	}
 
 	sample_data(int num_vao, int num_vbo, int num_ebo, int num_progs, int num_tex) :
 		initialised(0), VAOs(0), num_vao(num_vao), VBOs(0), num_vbo(num_vbo),
 		EBOs(0), num_ebo(num_ebo), programs(0), num_progs(num_progs),
-		textures(0), num_tex(num_tex)
+		textures(0), num_tex(num_tex), index_count(0)
 	{
 	}
 
@@ -100,3 +105,9 @@ struct sample_data
 };
 
 int loadTexture(GLuint tex, GLint repeat, const char* file);
+
+void processKeyboard(int direction, float deltaTime);
+void processMouseMovement(float xoffset, float yoffset);
+const glm::mat4 getViewMatrix();
+const glm::mat4 getProjMatrix();
+const glm::vec3 getCameraPosition();

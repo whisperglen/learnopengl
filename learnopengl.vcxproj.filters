@@ -22,6 +22,12 @@
     <Filter Include="Resource Files\textures">
       <UniqueIdentifier>{73c29a70-9f39-4849-815d-1a4fa80ea9c6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\NormalsVis">
+      <UniqueIdentifier>{74401911-aed9-4322-bfbf-25d5a71f860d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\NormalsVis">
+      <UniqueIdentifier>{d6ce5500-0870-4b56-8992-3b2e9405f163}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="_main.cpp">
@@ -63,6 +69,12 @@
     <ClCompile Include="optimus.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="100_normalsvis\_normals_vis.cpp">
+      <Filter>Source Files\NormalsVis</Filter>
+    </ClCompile>
+    <ClCompile Include="100_normalsvis\dense_mesh.cpp">
+      <Filter>Source Files\NormalsVis</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shaders.h">
@@ -73,6 +85,9 @@
     </ClInclude>
     <ClInclude Include="01_gettingstarted\getting_started.h">
       <Filter>Header Files\GettingStarted</Filter>
+    </ClInclude>
+    <ClInclude Include="100_normalsvis\normals_vis.h">
+      <Filter>Header Files\NormalsVis</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +126,15 @@
     </None>
     <None Include="01_gettingstarted\transformations.glsl">
       <Filter>Source Files\GettingStarted</Filter>
+    </None>
+    <None Include="100_normalsvis\dense_mesh_fragment.glsl">
+      <Filter>Source Files\NormalsVis</Filter>
+    </None>
+    <None Include="100_normalsvis\dense_mesh_vertex.glsl">
+      <Filter>Source Files\NormalsVis</Filter>
+    </None>
+    <None Include="100_normalsvis\dense_mesh_fragment_alt.glsl">
+      <Filter>Source Files\NormalsVis</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
