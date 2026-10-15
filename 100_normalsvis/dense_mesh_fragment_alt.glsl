@@ -9,6 +9,8 @@ uniform sampler2D normalMap;
 uniform vec3 lightPos;
 uniform vec3 viewPos;
 
+uniform sampler2D texture1;
+
 void main()
 {
     vec3 fdx = dFdx(FragPos); // Rate of change in X
@@ -34,6 +36,8 @@ void main()
     vec3 specular = specularStrength * spec * vec3(1.0, 1.0, 1.0);  
 
     // Combine results
-    vec3 result = (ambient + diffuse + specular) * vec3(0.7, 0.7, 0.7); // Base object color (Grey)
+    vec3 colorTex = texture(texture1, TexCoords).rgb;
+    vec3 colorGray = vec3(0.7, 0.7, 0.7);
+    vec3 result = (ambient + diffuse + specular) * colorGray;
     FragColor = vec4(result, 1.0);
 }

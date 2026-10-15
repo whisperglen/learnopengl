@@ -21,18 +21,18 @@ void main()
 
     // 1. Sample the Normal Map
     // Texture values are [0, 1]. We need vectors in [-1, 1].
-    vec3 rawColor = texture(normalMap, aTexCoords).rgb;
+    vec3 rawColor = vec3(texture(normalMap, aTexCoords).rg, 0);
     vec3 mappedNormal = normalize(rawColor * 2.0 - 1.0);
 
     // 2. Calculate the Displacement
     // OPTION A: Vector Displacement (Move along the vector from the map)
     // Useful if your map contains specific directional data (RGB = XYZ)
-    //vec3 displacement = mappedNormal * displacementStrength;
+    vec3 displacement = mappedNormal * displacementStrength;
 
     // OPTION B: Height Displacement (Move along the MESH normal)
     // If you just want to spike the mesh based on texture intensity
-    float intensity = length(rawColor); 
-    vec3 displacement = aNormal * intensity * displacementStrength;
+    //float intensity = length(rawColor); 
+    //vec3 displacement = aNormal * intensity * displacementStrength;
 
     // 3. Apply to Vertex Position
     vec3 finalPos = aPos + displacement;

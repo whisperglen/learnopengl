@@ -10,7 +10,6 @@ uniform vec3 lightPos;
 uniform vec3 viewPos;
 
 uniform sampler2D texture1;
-//uniform sampler2D texture2;
 
 void main()
 {
@@ -43,6 +42,6 @@ void main()
     // Combine results
     vec3 colorTex = texture(texture1, TexCoords).rgb;
     vec3 colorGray = vec3(0.7, 0.7, 0.7);
-    vec3 result = (ambient + diffuse + specular) * colorTex;
+    vec3 result = (ambient + diffuse + specular) * colorGray;
     FragColor = vec4(result, 1.0);
 }
