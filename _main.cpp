@@ -20,7 +20,7 @@ static void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void APIENTRY glDebugOutput(GLenum source, GLenum type, unsigned int id, GLenum severity, GLsizei length, const char* message, const void* userParam);
 
 static int selection = INT_MAX;
-static int unit = INT_MAX;
+static int unit = 1;
 
 static bool firstMouse = true;
 static float deltaTime = 0.0f;	// Time between current frame and last frame
@@ -152,26 +152,20 @@ static void processInput(GLFWwindow* window)
     if (glfwGetKey(window, GLFW_KEY_0) == GLFW_PRESS)
         unit = 0;
 
-    static int tab_pressed = 0;
-    if (glfwGetKey(window, GLFW_KEY_TAB) == GLFW_PRESS && !tab_pressed)
-    {
-        tab_pressed++;
-        selection--;
+#define KEYPRESS(KEY, ACTION) \
+    static int pressed##KEY = 0; \
+    if (glfwGetKey(window, KEY) == GLFW_PRESS && !pressed##KEY) \
+    { \
+        pressed##KEY++; \
+        ACTION; \
+    } \
+    if (glfwGetKey(window, KEY) == GLFW_RELEASE) \
+    { \
+        pressed##KEY = 0; \
     }
-    if (glfwGetKey(window, GLFW_KEY_TAB) == GLFW_RELEASE)
-    {
-        tab_pressed = 0;
-    }
-    if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
-    {
-        unit--;
-        if (unit < 0) unit = INT_MAX;
-    }
-    if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
-    {
-        unit++;
-        if (unit < 0) unit = 0;
-    }
+
+    KEYPRESS(GLFW_KEY_LEFT, selection--; if (selection < 0) selection = INT_MAX; printf("selection:%d\n",selection));
+    KEYPRESS(GLFW_KEY_RIGHT, selection++; if (selection < 0) selection = 0; printf("selection:%d\n", selection));
 
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
         processKeyboard(0, deltaTime);

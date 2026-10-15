@@ -21,7 +21,7 @@ int call_loop_unit1(int& selection)
 
 int basic()
 {
-	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+	glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	return 0;
