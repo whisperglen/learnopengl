@@ -162,6 +162,7 @@
     <ClCompile Include="01_gettingstarted\textures.cpp" />
     <ClCompile Include="01_gettingstarted\transformations.cpp" />
     <ClCompile Include="01_gettingstarted\triangle.cpp" />
+    <ClCompile Include="01_gettingstarted\vbo_ebo.cpp" />
     <ClCompile Include="01_gettingstarted\_getting_started.cpp" />
     <ClCompile Include="100_normalsvis\dense_mesh.cpp" />
     <ClCompile Include="100_normalsvis\_normals_vis.cpp" />

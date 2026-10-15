@@ -42,6 +42,9 @@ int color()
 	glBindVertexArray(color_sample.VAOs[0]);
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 
+	glUseProgram(0);
+	glBindVertexArray(0);
+
 	return 0;
 }
 
@@ -91,6 +94,9 @@ int uniform()
 
 	glBindVertexArray(uniform_sample.VAOs[0]);
 	glDrawArrays(GL_TRIANGLES, 0, 3);
+
+	glUseProgram(0);
+	glBindVertexArray(0);
 
 	return 0;
 }
@@ -146,6 +152,9 @@ int attributes()
 
 	glBindVertexArray(attributes_sample.VAOs[0]);
 	glDrawArrays(GL_TRIANGLES, 0, 3);
+
+	glUseProgram(0);
+	glBindVertexArray(0);
 
 	return 0;
 }

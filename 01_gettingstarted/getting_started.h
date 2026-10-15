@@ -22,6 +22,7 @@ int uniform();
 int attributes();
 int texture();
 int transformations();
+int vbo_ebo();
 
 #ifdef GETTING_STARTED_DATA
 
@@ -36,6 +37,7 @@ static void* getting_started_ptrs[] =
 	attributes,
 	texture,
 	transformations,
+	vbo_ebo,
 	0
 };
 

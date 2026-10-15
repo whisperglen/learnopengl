@@ -37,9 +37,11 @@ int main()
     run_tests();
 
     glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    // Do not force the check, load any available profile
+    //glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    //glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    //glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    
     //glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); //used for apple
     //glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, true); //requests debug context
 
@@ -166,6 +168,29 @@ static void processInput(GLFWwindow* window)
 
     KEYPRESS(GLFW_KEY_LEFT, selection--; if (selection < 0) selection = INT_MAX; printf("selection:%d\n",selection));
     KEYPRESS(GLFW_KEY_RIGHT, selection++; if (selection < 0) selection = 0; printf("selection:%d\n", selection));
+
+
+    if (glfwGetKey(window, GLFW_KEY_KP_1) == GLFW_PRESS)
+        selection = 1;
+    if (glfwGetKey(window, GLFW_KEY_KP_2) == GLFW_PRESS)
+        selection = 2;
+    if (glfwGetKey(window, GLFW_KEY_KP_3) == GLFW_PRESS)
+        selection = 3;
+    if (glfwGetKey(window, GLFW_KEY_KP_4) == GLFW_PRESS)
+        selection = 4;
+    if (glfwGetKey(window, GLFW_KEY_KP_5) == GLFW_PRESS)
+        selection = 5;
+    if (glfwGetKey(window, GLFW_KEY_KP_6) == GLFW_PRESS)
+        selection = 6;
+    if (glfwGetKey(window, GLFW_KEY_KP_7) == GLFW_PRESS)
+        selection = 7;
+    if (glfwGetKey(window, GLFW_KEY_KP_8) == GLFW_PRESS)
+        selection = 8;
+    if (glfwGetKey(window, GLFW_KEY_KP_9) == GLFW_PRESS)
+        selection = 9;
+    if (glfwGetKey(window, GLFW_KEY_KP_0) == GLFW_PRESS)
+        selection = 0;
+    
 
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
         processKeyboard(0, deltaTime);

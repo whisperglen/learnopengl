@@ -75,6 +75,9 @@
     <ClCompile Include="100_normalsvis\dense_mesh.cpp">
       <Filter>Source Files\NormalsVis</Filter>
     </ClCompile>
+    <ClCompile Include="01_gettingstarted\vbo_ebo.cpp">
+      <Filter>Source Files\GettingStarted</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shaders.h">

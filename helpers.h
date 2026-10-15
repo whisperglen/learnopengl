@@ -61,7 +61,7 @@ struct sample_data
 	{
 	}
 
-	int allocate()
+	virtual int allocate()
 	{
 		int rtn = -1;
 
@@ -104,6 +104,61 @@ struct sample_data
 	}
 };
 
+struct sample_data_arb : public sample_data
+{
+	sample_data_arb(int num_vao, int num_vbo, int num_ebo, int num_progs) :
+		sample_data(0, num_vbo, num_ebo, 0)
+	{
+	}
+
+	sample_data_arb(int num_vao, int num_vbo, int num_ebo, int num_progs, int num_tex) :
+		sample_data(0, num_vbo, num_ebo, 0, num_tex)
+	{
+	}
+
+	virtual int allocate()
+	{
+		int rtn = -1;
+
+		do {
+			//if (num_vao)
+			//{
+			//	VAOs = (GLuint*)malloc(num_vao * sizeof(GLuint));
+			//	if (!VAOs) break;
+			//	glGenVertexArrays(num_vao, VAOs);
+			//}
+			if (num_vbo)
+			{
+				VBOs = (GLuint*)malloc(num_vbo * sizeof(GLuint));
+				if (!VBOs) break;
+				glGenBuffersARB(num_vbo, VBOs);
+			}
+			if (num_ebo)
+			{
+				EBOs = (GLuint*)malloc(num_ebo * sizeof(GLuint));
+				if (!EBOs) break;
+				glGenBuffersARB(num_ebo, EBOs);
+			}
+			if (num_progs)
+			{
+				programs = (GLuint*)malloc(num_progs * sizeof(GLuint));
+				if (!programs) break;
+				memset(programs, 0, num_progs * sizeof(GLuint));
+			}
+			if (num_tex)
+			{
+				textures = (GLuint*)malloc(num_tex * sizeof(GLuint));
+				if (!textures) break;
+				glGenTextures(num_tex, textures);
+			}
+
+			rtn = 0;
+		} while (0);
+
+		return rtn;
+	}
+};
+
 int loadTexture(GLuint tex, GLint repeat, const char* file);
 
 void processKeyboard(int direction, float deltaTime);
@@ -111,3 +166,8 @@ void processMouseMovement(float xoffset, float yoffset);
 const glm::mat4 getViewMatrix();
 const glm::mat4 getProjMatrix();
 const glm::vec3 getCameraPosition();
+
+static inline float getTime()
+{
+	return (float)glfwGetTime();
+}

@@ -20,7 +20,7 @@ int loadTexture(GLuint tex, GLint repeat, const char* file)
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, (nrChannels == 4 ? GL_RGBA : GL_RGB), GL_UNSIGNED_BYTE, data);
-		glGenerateMipmap(GL_TEXTURE_2D);
+        if(glGenerateMipmap) glGenerateMipmap(GL_TEXTURE_2D);
 
 		if (repeat == GL_CLAMP_TO_BORDER)
 		{
